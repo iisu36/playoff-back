@@ -1,15 +1,20 @@
 const express = require('express')
 const axios = require('axios')
 const { response } = require('express')
+const cors = require('cors')
 
 const app = express()
 
+app.use(express.static('build'))
+app.use(express.json())
+app.use(cors())
+
 app.get('/', async (req, res) => {
-    const data = await axios.get('https://statsapi.web.nhl.com/api/v1/standings')
+    const result = await axios.get('https://statsapi.web.nhl.com/api/v1/standings')
 
     const allTeams = []
 
-    const divisions = data.data.records.map(division => {
+    const divisions = result.data.records.map(division => {
 
         const teams = division.teamRecords.map(team => {
             const joukkue = {
@@ -31,11 +36,14 @@ app.get('/', async (req, res) => {
         }
     })
 
-    const stats = allTeams.concat(divisions)
+    const stats = {
+        league: allTeams,
+        divisions: divisions
+    }
 
-    stats.sort((a, b) => a.leagueRank - b.leagueRank)
+    stats.league.sort((a, b) => a.leagueRank - b.leagueRank)
 
-    res.send(stats)
+    res.json(stats)
 })
 
-app.listen(3000)
+app.listen(3001)
