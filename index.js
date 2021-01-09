@@ -17,16 +17,18 @@ app.get('/', async (req, res) => {
     const divisions = result.data.records.map(division => {
 
         const teams = division.teamRecords.map(team => {
-            const joukkue = {
+
+            const teamToAdd = {
                 team: team.team.name,
                 points: team.points,
                 divisionRank: team.divisionRank,
-                leagueRank: team.leagueRank
+                leagueRank: team.leagueRank,
+                lastUpdated: team.lastUpdated
             }
 
-            allTeams.push(joukkue)
+            allTeams.push(teamToAdd)
 
-            return joukkue
+            return teamToAdd
         })
         
 
