@@ -9,7 +9,7 @@ app.use(express.static('build'))
 app.use(express.json())
 app.use(cors())
 
-app.get('/', async (req, res) => {
+app.get('/anari', async (req, res) => {
     const result = await axios.get('https://statsapi.web.nhl.com/api/v1/standings')
 
     const allTeams = []
@@ -48,4 +48,6 @@ app.get('/', async (req, res) => {
     res.json(stats)
 })
 
-app.listen(3001)
+const PORT = process.env.port || 3001
+
+app.listen(PORT)

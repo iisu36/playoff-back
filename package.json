@@ -7,7 +7,11 @@
         "start": "node index.js",
         "dev": "nodemon index.js",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "lint": "eslint ."
+        "lint": "eslint .",
+        "build:ui": "rm -rf build && cd ../anari-front && npm run build --prod && cp -r build ../anari-back && cd ../anari-back",
+        "deploy": "git push heroku main",
+        "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
+        "logs:prod": "heroku logs --tail"
     },
     "author": "",
     "license": "ISC",
