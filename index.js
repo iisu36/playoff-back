@@ -1,7 +1,10 @@
+require('dotenv').config()
 const express = require('express')
 const axios = require('axios')
 const { response } = require('express')
 const cors = require('cors')
+
+const Pelaaja = require('./pelaaja')
 
 const app = express()
 
@@ -30,7 +33,7 @@ app.get('/anari', async (req, res) => {
 
             return teamToAdd
         })
-        
+
 
         return {
             division: division.division.name,
@@ -46,6 +49,30 @@ app.get('/anari', async (req, res) => {
     stats.league.sort((a, b) => a.leagueRank - b.leagueRank)
 
     res.json(stats)
+})
+
+app.post('/anari/pelaajat', (req, res, next) => {
+    const body = req.body
+
+    const pelaaja = new Pelaaja({
+        standing: body.standing,
+        name: body.name,
+        teams: body.teams,
+        points: body.points,
+        pisteporssi: body.pisteporssi
+    })
+
+    pelaaja.save()
+        .then(savedPelaaja => {
+            res.status(201).json(savedPelaaja.toJSON())
+        })
+        .catch(error => next(error))
+})
+
+app.get('/anari/pelaajat', (req, res) => {
+    Pelaaja.find({}).then(pelaajat => {
+        res.json(pelaajat)
+    })
 })
 
 const PORT = process.env.PORT || 3001

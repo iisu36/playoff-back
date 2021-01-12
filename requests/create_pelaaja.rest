@@ -1,0 +1,51 @@
+POST http://localhost:3001/anari/pelaajat
+Content-Type: application/json
+
+{
+    "standing": 0,
+    "name": "Kulhua",
+    "teams": [
+        {
+            "name": "Colorado Avalanche",
+            "division": "West",
+            "points": 0
+        },
+        {
+            "name": "Vegas Golden Knights",
+            "division": "West",
+            "points": 0
+        },
+        {
+            "name": "Boston Bruins",
+            "division": "East",
+            "points": 0
+        },
+        {
+            "name": "Washington Capitals",
+            "division": "East",
+            "points": 0
+        },
+        {
+            "name": "Calgary Flames",
+            "division": "North",
+            "points": 0
+        },
+        {
+            "name": "Montréal Canadiens",
+            "division": "North",
+            "points": 0
+        },
+        {
+            "name": "Carolina Hurricanes",
+            "division": "Central",
+            "points": 0
+        },
+        {
+            "name": "Dallas Stars",
+            "division": "Central",
+            "points": 0
+        }
+    ],
+    "points": 0,
+    "pisteporssi": 73
+}
