@@ -23,6 +23,7 @@ app.get('/anari', async (req, res) => {
 
             const teamToAdd = {
                 team: team.team.name,
+                teamId: team.team.id,
                 points: team.points,
                 divisionRank: team.divisionRank,
                 leagueRank: team.leagueRank,
