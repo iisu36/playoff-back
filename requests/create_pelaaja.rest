@@ -3,57 +3,33 @@ Content-Type: application/json
 
 {
     "standing": 0,
-    "name": "Hakala",
+    "name": "Kulhua",
     "teams": [
         {
-            "name": "Colorado Avalanche",
-            "teamId": 21,
-            "division": "West",
-            "points": 0
+            "teamId": 5
         },
         {
-            "name": "Vegas Golden Knights",
-            "teamId": 54,
-            "division": "West",
-            "points": 0
+            "teamId": 2
         },
         {
-            "name": "New York Islanders",
-            "teamId": 2,
-            "division": "East",
-            "points": 0
+            "teamId": 13
         },
         {
-            "name": "Washington Capitals",
-            "teamId": 15,
-            "division": "East",
-            "points": 0
+            "teamId": 8
         },
         {
-            "name": "Toronto Maple Leafs",
-            "teamId": 10,
-            "division": "North",
-            "points": 0
+            "teamId": 21
         },
         {
-            "name": "Vancouver Canucks",
-            "teamId": 23,
-            "division": "North",
-            "points": 0
+            "teamId": 25
         },
         {
-            "name": "Dallas Stars",
-            "teamId": 25,
-            "division": "Central",
-            "points": 0
+            "teamId": 54
         },
         {
-            "name": "Tampa Bay Lightning",
-            "teamId": 14,
-            "division": "Central",
-            "points": 0
+            "teamId": 55
         }
     ],
     "points": 0,
-    "pisteporssi": 87
+    "pisteporssi": 136
 }

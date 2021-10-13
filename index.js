@@ -83,7 +83,7 @@ app.get('/anari/pelaajat', (req, res) => {
 })
 
 app.get('/anari/porssi', async (req, res) => {
-    const result = await axios.get('https://api.nhle.com/stats/rest/fi/leaders/skaters/points?cayenneExp=season=20202021%20and%20gameType=2')
+    const result = await axios.get('https://api.nhle.com/stats/rest/fi/leaders/skaters/points?cayenneExp=season=20212022%20and%20gameType=2')
     const pelaaja = {
         name: result.data.data[0].player.lastName,
         points: result.data.data[0].points
