@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
     "standing": 0,
-    "name": "Karvanen",
+    "name": "Samppa",
     "teams": [
         {
             "teamId": 14
@@ -18,10 +18,10 @@ Content-Type: application/json
             "teamId": 3
         },
         {
-            "teamId": 21
+            "teamId": 19
         },
         {
-            "teamId": 30
+            "teamId": 21
         },
         {
             "teamId": 22
@@ -31,5 +31,5 @@ Content-Type: application/json
         }
     ],
     "points": 0,
-    "pisteporssi": 118
+    "pisteporssi": 112
 }

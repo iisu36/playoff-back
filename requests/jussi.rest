@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
     "standing": 0,
-    "name": "Karvanen",
+    "name": "Jussi",
     "teams": [
         {
             "teamId": 14
@@ -15,21 +15,21 @@ Content-Type: application/json
             "teamId": 12
         },
         {
-            "teamId": 3
+            "teamId": 5
+        },
+        {
+            "teamId": 19
         },
         {
             "teamId": 21
         },
         {
-            "teamId": 30
-        },
-        {
             "teamId": 22
         },
         {
-            "teamId": 20
+            "teamId": 54
         }
     ],
     "points": 0,
-    "pisteporssi": 118
+    "pisteporssi": 117
 }

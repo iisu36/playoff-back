@@ -3,10 +3,10 @@ Content-Type: application/json
 
 {
     "standing": 0,
-    "name": "Karvanen",
+    "name": "Lehtinen",
     "teams": [
         {
-            "teamId": 14
+            "teamId": 13
         },
         {
             "teamId": 10
@@ -15,21 +15,21 @@ Content-Type: application/json
             "teamId": 12
         },
         {
-            "teamId": 3
-        },
-        {
-            "teamId": 21
+            "teamId": 1
         },
         {
             "teamId": 30
         },
         {
-            "teamId": 22
+            "teamId": 18
+        },
+        {
+            "teamId": 55
         },
         {
             "teamId": 20
         }
     ],
     "points": 0,
-    "pisteporssi": 118
+    "pisteporssi": 129
 }
