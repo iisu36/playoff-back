@@ -90,20 +90,20 @@ app.post('/anari/pelaajat', (req, res, next) => {
 })
 
 app.get('/anari/pelaajat', async (req, res) => {
-  Pelaaja.find({})
+  /* Pelaaja.find({})
     .then((pelaajat) => {
       res.json(pelaajat)
     })
-    .catch((error) => next(error))
+    .catch((error) => next(error)) */
 })
 
 app.get('/anari/porssi', async (req, res) => {
   const result = await axios.get(
-    'https://api.nhle.com/stats/rest/fi/leaders/skaters/points?cayenneExp=season=20222023%20and%20gameType=2'
+    'https://api.nhle.com/stats/rest/fi/leaders/skaters/points?cayenneExp=season=20232024%20and%20gameType=2'
   )
   const pelaaja = {
-    name: result.data.data[0].player.lastName,
-    points: result.data.data[0].points,
+    name: result.data.data[0]?.player.lastName,
+    points: result.data.data[0]?.points,
   }
   res.json(pelaaja)
 })
