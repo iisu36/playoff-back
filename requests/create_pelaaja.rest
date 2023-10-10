@@ -3,33 +3,45 @@ Content-Type: application/json
 
 {
     "standing": 0,
-    "name": "Karvanen",
+    "name": "Kivikari",
     "teams": [
         {
-            "teamId": 14
+            "teamId": 29
         },
         {
-            "teamId": 10
+            "teamId": 15
         },
         {
-            "teamId": 12
-        },
-        {
-            "teamId": 3
-        },
-        {
-            "teamId": 21
-        },
-        {
-            "teamId": 30
+            "teamId": 1
         },
         {
             "teamId": 22
         },
         {
+            "teamId": 26
+        },
+        {
             "teamId": 20
+        },
+        {
+            "teamId": 19
+        },
+        {
+            "teamId": 30
+        },
+        {
+            "teamId": 25
+        },
+        {
+            "teamId": 17
+        },
+        {
+            "teamId": 9
+        },
+        {
+            "teamId": 14
         }
     ],
     "points": 0,
-    "pisteporssi": 118
+    "pisteporssi": 139
 }

@@ -90,11 +90,11 @@ app.post('/anari/pelaajat', (req, res, next) => {
 })
 
 app.get('/anari/pelaajat', async (req, res) => {
-  /* Pelaaja.find({})
+  Pelaaja.find({})
     .then((pelaajat) => {
       res.json(pelaajat)
     })
-    .catch((error) => next(error)) */
+    .catch((error) => next(error))
 })
 
 app.get('/anari/porssi', async (req, res) => {
