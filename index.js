@@ -32,34 +32,35 @@ mongoose
   })
 
 app.get('/anari', async (req, res) => {
-  const result = await axios.get(
-    'https://statsapi.web.nhl.com/api/v1/standings'
-  )
+  const divisions = [
+    { division: 'Atlantic', teams: [] },
+    { division: 'Central', teams: [] },
+    { division: 'Metropolitan', teams: [] },
+    { division: 'Pacific', teams: [] },
+  ]
+  let allTeams = []
+  try {
+    const result = await axios.get('https://api-web.nhle.com/v1/standings/now')
 
-  const allTeams = []
-
-  const divisions = result.data.records.map((division) => {
-    const teams = division.teamRecords.map((team) => {
+    allTeams = result.data.standings.map((team) => {
       const teamToAdd = {
-        team: team.team.name,
-        teamId: team.team.id,
+        team: team.teamName.default,
+        teamId: team.teamAbbrev.default,
         points: team.points,
-        divisionRank: team.divisionRank,
-        leagueRank: team.leagueRank,
-        lastUpdated: team.lastUpdated,
+        division: team.divisionName,
+        divisionRank: team.divisionSequence,
+        leagueRank: team.leagueSequence,
       }
 
-      allTeams.push(teamToAdd)
+      divisions
+        .find((division) => division.division === teamToAdd.division)
+        .teams.push(teamToAdd)
 
       return teamToAdd
     })
-
-    return {
-      division: division.division.name,
-      teams: teams,
-    }
-  })
-
+  } catch {
+    console.log('wrong')
+  }
   const stats = {
     league: allTeams,
     divisions: divisions,
