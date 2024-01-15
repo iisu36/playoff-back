@@ -1,47 +1,46 @@
-POST http://localhost:3001/anari/pelaajat
+POST http://localhost:3001/anari/players
 Content-Type: application/json
 
 {
-    "standing": 0,
     "name": "Kivikari",
     "teams": [
         {
-            "teamId": 29
+            "teamId": "LAK"
         },
         {
-            "teamId": 15
+            "teamId": "WSH"
         },
         {
-            "teamId": 1
+            "teamId": "CBJ"
         },
         {
-            "teamId": 22
+            "teamId": "TBL"
         },
         {
-            "teamId": 26
+            "teamId": "DAL"
         },
         {
-            "teamId": 20
+            "teamId": "DET"
         },
         {
-            "teamId": 19
+            "teamId": "NJD"
         },
         {
-            "teamId": 30
+            "teamId": "STL"
         },
         {
-            "teamId": 25
+            "teamId": "CGY"
         },
         {
-            "teamId": 17
+            "teamId": "MIN"
         },
         {
-            "teamId": 9
+            "teamId": "EDM"
         },
         {
-            "teamId": 14
+            "teamId": "OTT"
         }
     ],
     "points": 0,
-    "pisteporssi": 139
+    "statLeader": 139
 }
