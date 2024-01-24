@@ -21,7 +21,7 @@ mongoose
     console.log('error connection to MongoDB', error.message)
   })
 
-app.get('/anari', async (req, res) => {
+app.get('/anari', async (req, res, next) => {
   const standings = {}
   try {
     const result = await axios.get('https://api-web.nhle.com/v1/standings/now')
@@ -36,11 +36,11 @@ app.get('/anari', async (req, res) => {
         leagueRank: team.leagueSequence,
       }
     })
-  } catch {
+    res.json(standings)
+  } catch (err) {
     console.log('Failed to fetch standings from nhl api')
+    next(err)
   }
-
-  res.json(standings)
 })
 
 app.post('/anari/players', (req, res, next) => {
@@ -67,7 +67,7 @@ app.get('/anari/players', async (req, res) => {
   })
 })
 
-app.get('/anari/statLeader', async (req, res) => {
+app.get('/anari/statLeader', async (req, res, next) => {
   try {
     const result = await axios.get(
       'https://api.nhle.com/stats/rest/fi/leaders/skaters/points?cayenneExp=season=20232024%20and%20gameType=2'
@@ -77,8 +77,9 @@ app.get('/anari/statLeader', async (req, res) => {
       points: result.data.data[0]?.points,
     }
     res.json(player)
-  } catch {
+  } catch (err) {
     console.log('error reaching statleader')
+    next(err)
   }
 })
 
