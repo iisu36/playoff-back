@@ -24,7 +24,9 @@ mongoose
 app.get('/anari', async (req, res, next) => {
   const standings = {}
   try {
-    const result = await axios.get('https://api-web.nhle.com/v1/standings/now')
+    const result = await axios.get(
+      'https://api-web.nhle.com/v1/standings/2024-10-04'
+    )
 
     result.data.standings.forEach((team) => {
       standings[team.teamAbbrev.default] = {
@@ -34,6 +36,7 @@ app.get('/anari', async (req, res, next) => {
         division: team.divisionName,
         divisionRank: team.divisionSequence,
         leagueRank: team.leagueSequence,
+        teamLogo: team.teamLogo,
       }
     })
     res.json(standings)
@@ -70,7 +73,7 @@ app.get('/anari/players', async (req, res) => {
 app.get('/anari/statLeader', async (req, res, next) => {
   try {
     const result = await axios.get(
-      'https://api.nhle.com/stats/rest/fi/leaders/skaters/points?cayenneExp=season=20232024%20and%20gameType=2'
+      'https://api.nhle.com/stats/rest/fi/leaders/skaters/points?cayenneExp=season=20242025%20and%20gameType=2'
     )
     const player = {
       name: result.data.data[0]?.player.lastName,
