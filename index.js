@@ -24,9 +24,7 @@ mongoose
 app.get('/anari', async (req, res, next) => {
   const standings = {}
   try {
-    const result = await axios.get(
-      'https://api-web.nhle.com/v1/standings/2024-10-04'
-    )
+    const result = await axios.get('https://api-web.nhle.com/v1/standings/now')
 
     result.data.standings.forEach((team) => {
       standings[team.teamAbbrev.default] = {
