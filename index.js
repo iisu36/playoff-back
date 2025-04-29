@@ -21,12 +21,14 @@ mongoose
     console.log('error connection to MongoDB', error.message)
   })
 
-app.get('/anari', async (req, res, next) => {
+app.get('/playoff', async (req, res, next) => {
   const standings = {}
   try {
-    const result = await axios.get('https://api-web.nhle.com/v1/standings/now')
+    const result = await axios.get(
+      'https://api-web.nhle.com/v1/playoff-bracket/2025'
+    )
 
-    result.data.standings.forEach((team) => {
+    /* result.data.standings.forEach((team) => {
       standings[team.teamAbbrev.default] = {
         teamName: team.teamName.default,
         teamId: team.teamAbbrev.default,
@@ -36,8 +38,8 @@ app.get('/anari', async (req, res, next) => {
         leagueRank: team.leagueSequence,
         teamLogo: team.teamLogo,
       }
-    })
-    res.json(standings)
+    }) */
+    res.json(result.data)
   } catch (err) {
     console.log('Failed to fetch standings from nhl api')
     next(err)
@@ -49,9 +51,12 @@ app.post('/anari/players', (req, res, next) => {
 
   const player = new Player({
     name: body.name,
-    teams: body.teams,
+    firstRound: body.firstRound,
+    secondRound: body.secondRound,
+    conference: body.conference,
+    stanleyCup: body.stanleyCup,
+    connsmythe: body.connsmythe,
     points: body.points,
-    statLeader: body.statLeader,
   })
 
   player
@@ -66,22 +71,6 @@ app.get('/anari/players', async (req, res) => {
   Player.find({}).then((players) => {
     res.json(players)
   })
-})
-
-app.get('/anari/statLeader', async (req, res, next) => {
-  try {
-    const result = await axios.get(
-      'https://api.nhle.com/stats/rest/fi/leaders/skaters/points?cayenneExp=season=20242025%20and%20gameType=2'
-    )
-    const player = {
-      name: result.data.data[0]?.player.lastName,
-      points: result.data.data[0]?.points,
-    }
-    res.json(player)
-  } catch (err) {
-    console.log('error reaching statleader')
-    next(err)
-  }
 })
 
 const PORT = process.env.PORT || 3001

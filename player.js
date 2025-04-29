@@ -1,17 +1,19 @@
 const mongoose = require('mongoose')
 
-const teamSchema = new mongoose.Schema({
-  name: String,
-  teamId: String,
-  division: String,
-  points: Number,
+const seriesSchema = new mongoose.Schema({
+  seriesLetter: String,
+  topWins: Number,
+  bottomWins: Number,
 })
 
 const playerSchema = new mongoose.Schema({
   name: String,
-  teams: [teamSchema],
+  firstRound: [seriesSchema],
+  secondRound: [seriesSchema],
+  conference: [seriesSchema],
+  stanleyCup: [seriesSchema],
   points: Number,
-  statLeader: Number,
+  connsmythe: String,
 })
 
-module.exports = mongoose.model('Player', playerSchema)
+module.exports = mongoose.model('Playoffsplayer', playerSchema)

@@ -2,45 +2,17 @@ POST http://localhost:3001/anari/players
 Content-Type: application/json
 
 {
-    "name": "Kivikari",
-    "teams": [
-        {
-            "teamId": "LAK"
-        },
-        {
-            "teamId": "WSH"
-        },
-        {
-            "teamId": "CBJ"
-        },
-        {
-            "teamId": "TBL"
-        },
-        {
-            "teamId": "DAL"
-        },
-        {
-            "teamId": "DET"
-        },
-        {
-            "teamId": "NJD"
-        },
-        {
-            "teamId": "STL"
-        },
-        {
-            "teamId": "CGY"
-        },
-        {
-            "teamId": "MIN"
-        },
-        {
-            "teamId": "EDM"
-        },
-        {
-            "teamId": "OTT"
-        }
+    "name": "Saku",
+    "firstRound": [
+        {"seriesLetter": "A", "topWins": 4, "bottomWins": 2 },
+        {"seriesLetter": "B", "topWins": 4, "bottomWins": 2 },
+        {"seriesLetter": "C", "topWins": 1, "bottomWins": 4 },
+        {"seriesLetter": "D", "topWins": 4, "bottomWins": 1 },
+        {"seriesLetter": "E", "topWins": 4, "bottomWins": 0 },
+        {"seriesLetter": "F", "topWins": 2, "bottomWins": 4 },
+        {"seriesLetter": "G", "topWins": 3, "bottomWins": 4 },
+        {"seriesLetter": "H", "topWins": 0, "bottomWins": 4 }
     ],
     "points": 0,
-    "statLeader": 139
+    "connsmythe": "Vasilevskiy"
 }
