@@ -46,6 +46,24 @@ app.get('/playoff', async (req, res, next) => {
   }
 })
 
+app.put('/anari/players', (req, res, next) => {
+  const body = req.body
+
+  Player.findOne({ name: body.name })
+    .then((existingPlayer) => {
+      if (existingPlayer) {
+        existingPlayer.secondRound = body.secondRound
+        return Player.findByIdAndUpdate(existingPlayer._id, existingPlayer, {
+          new: true,
+        })
+      }
+    })
+    .then((savedPlayer) => {
+      res.status(200).json(savedPlayer.toJSON())
+    })
+    .catch((error) => next(error))
+})
+
 app.post('/anari/players', (req, res, next) => {
   const body = req.body
 

@@ -1,0 +1,12 @@
+PUT http://localhost:3001/anari/players
+Content-Type: application/json
+
+{
+    "name": "Kulmala",
+    "secondRound": [
+        {"seriesLetter": "I", "topWins": 1, "bottomWins": 4 },
+        {"seriesLetter": "J", "topWins": 4, "bottomWins": 3 },
+        {"seriesLetter": "K", "topWins": 3, "bottomWins": 4 },
+        {"seriesLetter": "L", "topWins": 4, "bottomWins": 2 }
+    ]
+}
