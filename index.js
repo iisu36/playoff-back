@@ -54,6 +54,7 @@ app.put('/anari/players', (req, res, next) => {
       if (existingPlayer) {
         existingPlayer.secondRound = body.secondRound
         existingPlayer.conference = body.conference
+        existingPlayer.stanleyCup = body.stanleyCup
         return Player.findByIdAndUpdate(existingPlayer._id, existingPlayer, {
           new: true,
         })

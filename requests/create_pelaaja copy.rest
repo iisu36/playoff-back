@@ -2,9 +2,8 @@ PUT http://localhost:3001/anari/players
 Content-Type: application/json
 
 {
-    "name": "Saku",
-    "conference": [
-        {"seriesLetter": "M", "topWins": 4, "bottomWins": 1 },
-        {"seriesLetter": "N", "topWins": 4, "bottomWins": 3 }
+    "name": "Kulhua",
+    "stanleyCup": [
+        {"seriesLetter": "O", "topWins": 4, "bottomWins": 3 }
     ]
 }
